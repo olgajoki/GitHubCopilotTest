@@ -17,9 +17,9 @@ import recipePrompt from "../../data/prompt.json" assert { type: "json" };
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY // This is also the default, can be omitted
   
-});// import json data from prompt.json file
+});
 
-console.log(apiKey);
+//console.log(apiKey);
 const generateInfo = async (req, res) => {
     const { recipe } = req.body;
   
