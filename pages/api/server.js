@@ -8,8 +8,11 @@ Create a server with the following specifications:
 5. state which port the server is listening to
 */ 
 
-const express = require('express');
-const dotenv = require('dotenv').config();
+import express from "express";
+//const express = require('express');
+import dotenv from 'dotenv';
+import router from "./router.js";
+dotenv.config();
 const PORT = 8080
 
 const app = express();
@@ -19,9 +22,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // add router to the server and name it openai
-app.use('/openai', require('./router'));
+app.use('/openai', router);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 // export the express api
-module.exports = app;
+export default app;

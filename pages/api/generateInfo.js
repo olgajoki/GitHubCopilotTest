@@ -10,17 +10,16 @@ Create a controller with the following specifications:
 7. export the generateInfo function as a module
 */
 
-const { Configuration, OpenAIApi } = require('openai');
-// import json data from prompt.json file
-const { recipePrompt } = require("../../data/prompt.json");
-
-const configuration = new Configuration({
-    apiKey: process.env.OPENAI_API_KEY,
-});
-
-const openai = new OpenAIApi(configuration);
+import OpenAI from 'openai';
+import recipePrompt from "../../data/prompt.json" assert { type: "json" };
 
 
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY // This is also the default, can be omitted
+  
+});// import json data from prompt.json file
+
+console.log(apiKey);
 const generateInfo = async (req, res) => {
     const { recipe } = req.body;
   
@@ -52,4 +51,4 @@ const generateInfo = async (req, res) => {
     }
   };
   
-module.exports = { generateInfo };
+export default generateInfo;

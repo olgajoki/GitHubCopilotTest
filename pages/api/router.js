@@ -1,7 +1,8 @@
-const express = require("express");
+//const express = require("express");
+import express from "express";
 const router = express.Router();
-const { generateInfo } = require("./generateInfo.js").default;
+import generateInfo from "./generateInfo.js";
 
 router.post("/generateInfo", generateInfo);
 
-module.exports = router;
+export default router;
